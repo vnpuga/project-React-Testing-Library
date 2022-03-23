@@ -5,6 +5,8 @@ import renderWithRouter from './renderWithRouter';
 import App from '../App';
 
 describe('Teste o componente Pokemon', () => {
+  const urlPikachu = '/pokemons/25';
+
   it('Teste se é renderizado um card com as informações de determinado pokémon', () => {
     renderWithRouter(<App />);
     const name = screen.getByTestId('pokemon-name');
@@ -25,7 +27,7 @@ describe('Teste o componente Pokemon', () => {
     renderWithRouter(<App />);
     const linkDetails = screen.getByRole('link', { name: /More details/i });
     expect(linkDetails).toBeInTheDocument();
-    expect(linkDetails).toHaveAttribute('href', '/pokemons/25');
+    expect(linkDetails).toHaveAttribute('href', urlPikachu);
   });
 
   it('Teste se ao clicar no link de navegação do Pokémon, é feito o redirecionamento'
@@ -42,7 +44,7 @@ describe('Teste o componente Pokemon', () => {
     const { history } = renderWithRouter(<App />);
     const linkDetails = screen.getByRole('link', { name: /More details/i });
     userEvent.click(linkDetails);
-    expect(history.location.pathname).toBe('/pokemons/25');
+    expect(history.location.pathname).toBe(urlPikachu);
   });
 
   it('Teste se existe um ícone de estrela nos Pokémons favoritados.', () => {
