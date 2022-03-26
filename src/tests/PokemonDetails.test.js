@@ -3,7 +3,6 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
 import App from '../App';
-import { PokemonDetails } from '../components';
 
 describe('Teste o componente PokemonDetails', () => {
   const urlPikachu = '/pokemons/25';
